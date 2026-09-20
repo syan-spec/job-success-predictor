@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Campus2Career — Job Success Predictor</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="badge">AI-Powered · Free · Instant</div>
+  <h1>Will You Get the Job?</h1>
+  <p>Fill in your details below and our AI predicts your chances of success — based on real recruitment research.</p>
+  <div class="stats">
+    <div class="stat"><div class="stat-num">93%</div><div class="stat-label">Model Accuracy</div></div>
+    <div class="stat"><div class="stat-num">9</div><div class="stat-label">Factors Analysed</div></div>
+    <div class="stat"><div class="stat-num">&lt;5s</div><div class="stat-label">Instant Result</div></div>
+    <div class="stat"><div class="stat-num">Free</div><div class="stat-label">No Sign-Up</div></div>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- HOW IT WORKS -->
+  <div class="how-section">
+    <div class="how-title">How it works</div>
+    <div class="how-grid">
+      <div class="how-card">
+        <div class="how-icon">📝</div>
+        <div class="how-card-title">Fill your profile</div>
+        <div class="how-card-text">Enter your experience, skills, and soft skills in the form below.</div>
+      </div>
+      <div class="how-card">
+        <div class="how-icon">🔍</div>
+        <div class="how-card-title">Describe the job</div>
+        <div class="how-card-text">Tell us about the role you're applying for — title, skills required, description.</div>
+      </div>
+      <div class="how-card">
+        <div class="how-icon">🤖</div>
+        <div class="how-card-title">AI analyses it</div>
+        <div class="how-card-text">BERT + XGBoost (from peer-reviewed research) calculates your match score.</div>
+      </div>
+      <div class="how-card">
+        <div class="how-icon">🏆</div>
+        <div class="how-card-title">Get your result</div>
+        <div class="how-card-text">See your prediction, confidence score, and personalised improvement tips.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FORM -->
+  <div id="form-section">
+
+    <!-- STEP 1 -->
+    <div class="step-card">
+      <div class="step-header">
+        <div class="step-num">1</div>
+        <div>
+          <div class="step-title">About You</div>
+          <div class="step-sub">Your professional background</div>
+        </div>
+      </div>
+      <div class="form-grid">
+        <div class="form-group">
+          <label>Your Job Title</label>
+          <select id="c-title">
+            <option value="">Select your title...</option>
+            <option value="Software Developer">Software Developer</option>
+            <option value="Software Engineer">Software Engineer</option>
+            <option value="Data Scientist">Data Scientist</option>
+            <option value="Quality Assurance">Quality Assurance</option>
+            <option value="Designer">Designer</option>
+            <option value="Human Resource">Human Resource</option>
+            <option value="Accountant">Accountant</option>
+            <option value="Marketing Specialist">Marketing Specialist</option>
+            <option value="Project Manager">Project Manager</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Your Industry</label>
+          <select id="c-industry">
+            <option value="">Select industry...</option>
+            <option value="Software Development">IT</option>
+            <option value="FinTech">FinTech</option>
+            <option value="Marketing">Marketing</option>
+            <option value="BioTech">BioTech</option>
+            <option value="Healthcare">Healthcare</option>
+            <option value="Education">Education</option>
+            <option value="Finance">Finance</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+        <div class="form-group full">
+          <label>Describe Yourself (profile / background)</label>
+          <textarea id="c-desc" placeholder="e.g. Experienced Python developer with 4 years in machine learning and data pipelines. Strong team player with leadership experience..."></textarea>
+        </div>
+        <div class="form-group">
+          <label>Your Experience (years)</label>
+          <input type="number" id="c-exp" min="0" max="40" step="0.5" placeholder="e.g. 4" />
+        </div>
+        <div class="form-group">
+          <label>Skills You Have (count)</label>
+          <input type="number" id="c-skills" min="0" max="20" step="1" placeholder="e.g. 7" />
+        </div>
+        <div class="form-group">
+          <label>Avg. Time Per Job (months)</label>
+          <input type="number" id="c-duration" min="1" max="120" step="1" placeholder="e.g. 24" />
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 2 -->
+    <div class="step-card">
+      <div class="step-header">
+        <div class="step-num">2</div>
+        <div>
+          <div class="step-title">The Job You're Applying For</div>
+          <div class="step-sub">Details from the job posting</div>
+        </div>
+      </div>
+      <div class="form-grid">
+        <div class="form-group">
+          <label>Required Job Title</label>
+          <select id="j-title">
+            <option value="">Select required title...</option>
+            <option value="Software Developer">Software Developer</option>
+            <option value="Software Engineer">Software Engineer</option>
+            <option value="Data Scientist">Data Scientist</option>
+            <option value="Quality Assurance">Quality Assurance</option>
+            <option value="Designer">Designer</option>
+            <option value="Human Resource">Human Resource</option>
+            <option value="Accountant">Accountant</option>
+            <option value="Marketing Specialist">Marketing Specialist</option>
+            <option value="Project Manager">Project Manager</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Job Industry</label>
+          <select id="j-industry">
+            <option value="">Select industry...</option>
+            <option value="Software Development">IT</option>
+            <option value="FinTech">FinTech</option>
+            <option value="Marketing">Marketing</option>
+            <option value="BioTech">BioTech</option>
+            <option value="Healthcare">Healthcare</option>
+            <option value="Education">Education</option>
+            <option value="Finance">Finance</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+        <div class="form-group full">
+          <label>Job Description (what they're looking for)</label>
+          <textarea id="j-desc" placeholder="e.g. We are looking for a Python developer with machine learning experience to build data pipelines and predictive models for our platform..."></textarea>
+        </div>
+        <div class="form-group">
+          <label>Required Experience (years)</label>
+          <input type="number" id="j-exp" min="0" max="20" step="0.5" placeholder="e.g. 3" />
+        </div>
+        <div class="form-group">
+          <label>Skills Required (count)</label>
+          <input type="number" id="j-skills" min="1" max="20" step="1" placeholder="e.g. 8" />
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 3 -->
+    <div class="step-card">
+      <div class="step-header">
+        <div class="step-num">3</div>
+        <div>
+          <div class="step-title">Your Soft Skills</div>
+          <div class="step-sub">Rate yourself honestly — these matter a lot!</div>
+        </div>
+      </div>
+      <div class="slider-group">
+        <div class="slider-row">
+          <span class="slider-label">Motivation</span>
+          <input type="range" min="1" max="10" value="7" id="s-motivation" oninput="document.getElementById('v-motivation').textContent=this.value">
+          <span class="slider-val" id="v-motivation">7</span>
+          <span class="slider-unit">/10</span>
+        </div>
+        <div class="slider-row">
+          <span class="slider-label">Enthusiasm</span>
+          <input type="range" min="1" max="10" value="7" id="s-enthusiasm" oninput="document.getElementById('v-enthusiasm').textContent=this.value">
+          <span class="slider-val" id="v-enthusiasm">7</span>
+          <span class="slider-unit">/10</span>
+        </div>
+        <div class="slider-row">
+          <span class="slider-label">Communication</span>
+          <input type="range" min="1" max="10" value="7" id="s-communication" oninput="document.getElementById('v-communication').textContent=this.value">
+          <span class="slider-val" id="v-communication">7</span>
+          <span class="slider-unit">/10</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- SUBMIT -->
+    <div class="btn-wrap">
+      <button class="btn-submit" onclick="runPrediction()">Predict My Success →</button>
+    </div>
+    <p id="err-msg">Please fill in all fields before predicting.</p>
+
+  </div><!-- /form-section -->
+
+  <!-- LOADING -->
+  <div class="loading-wrap" id="loading">
+    <div class="spinner"></div>
+    <p class="loading-title">Analysing your profile...</p>
+    <div class="loading-steps">
+      <div class="loading-step" id="ls1">Comparing job titles and industries...</div>
+      <div class="loading-step" id="ls2">Calculating text similarity with NLP...</div>
+      <div class="loading-step" id="ls3">Scoring experience and skill match...</div>
+      <div class="loading-step" id="ls4">Running XGBoost prediction model...</div>
+      <div class="loading-step" id="ls5">Generating your personalised report...</div>
+    </div>
+  </div>
+
+  <!-- RESULT -->
+  <div id="result">
+    <div class="result-card" id="verdict-card">
+      <div class="result-top">
+        <div class="verdict-icon" id="verdict-icon"></div>
+        <div class="verdict-text">
+          <h2 id="verdict-title"></h2>
+          <p id="verdict-msg"></p>
+        </div>
+      </div>
+      <div class="confidence-wrap">
+        <div class="conf-label">Confidence Score</div>
+        <div class="conf-track"><div class="conf-fill" id="conf-fill"></div></div>
+        <div class="conf-pct" id="conf-pct"></div>
+      </div>
+      <div class="scores-title">Your Score Breakdown</div>
+      <div class="score-grid" id="score-grid"></div>
+    </div>
+
+    <div class="tips-card" id="tips-card">
+      <h3>💡 Personalised Tips</h3>
+      <div id="tips-list"></div>
+    </div>
+
+    <div class="reset-wrap">
+      <button class="btn-reset" onclick="resetForm()">← Try Another Profile</button>
+    </div>
+  </div>
+
+</div><!-- /container -->
+
+<footer>
+  Built on research: <span>"Candidate Engagement Success Prediction using ML &amp; NLP" — © 2026 Sayan Jana. All rights reserved.</span><br>
+  <span class="footer-note">This tool is for guidance only and does not guarantee employment outcomes.</span>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
